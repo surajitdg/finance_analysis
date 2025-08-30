@@ -1,0 +1,7 @@
+langgraph
+langchain
+pandas
+langchain_experimental
+langchain_mistralai
+tabulate
+openpypxl
