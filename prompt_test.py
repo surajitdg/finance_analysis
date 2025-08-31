@@ -1,9 +1,11 @@
 from langchain_mistralai import ChatMistralAI
 import os
 import re
+import json
+from langchain_mistralai import ChatMistralAI
 from langchain_core.prompts import PromptTemplate
 
-os.environ["MISTRAL_API_KEY"] = "" #key.read()
+os.environ["MISTRAL_API_KEY"] = "Pcd7zIRCeLhI6JW5sZo8UMRJGCblYUIn" #key.read()
 
 llm  = ChatMistralAI(model="mistral-small-latest", temperature=0)
 
@@ -12,7 +14,7 @@ instructions = """
                 entity, description of entity and give additional attributes if any.
 
                 # Instructions on how to process text and give output
-                1) From the text recognize the named entity.
+                1) From the text recognize the named entity. Use proper entity resolution and entity disambiguation.
                 2) Understand what is the type of Entity.
                 3) One liner description of the entity if possible to be gathered from the text, else none.
                 4) Additional attributes of the entity which helps to understand what the entity is if possible to be gathered from the text, else none.
@@ -40,9 +42,10 @@ instructions = """
 # entity_template = PromptTemplate.from_template(instructions)
 res = llm.invoke(instructions+"TACC's ongoing collaborations across sectors already provide clear demonstrations of this promise. In construction, TACC is working with the National Council for Cement and Building Materials (NCB) and the Central Road Research Institute (CRRI) on graphene-based concrete solutions")
 res = str(res.content)
-print (res)
+# print (res)
 match = re.search('```json',res)
 res = res[match.start()+8:]
 end = re.search('```', res)
 res = res[:end.end()-3]
-print (res)
+out = json.loads(res)
+print (out)
