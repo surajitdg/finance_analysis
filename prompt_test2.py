@@ -4,7 +4,7 @@ import re
 import json
 from langchain_core.prompts import PromptTemplate
 
-os.environ["MISTRAL_API_KEY"] = "Pcd7zIRCeLhI6JW5sZo8UMRJGCblYUIn" #key.read()
+os.environ["MISTRAL_API_KEY"] = "" #key.read()
 
 llm  = ChatMistralAI(model="mistral-small-latest", temperature=0)
 
