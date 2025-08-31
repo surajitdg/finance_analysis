@@ -4,4 +4,4 @@ pandas
 langchain_experimental
 langchain_mistralai
 tabulate
-openpypxl
+openpyxl
