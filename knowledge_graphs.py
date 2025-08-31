@@ -160,7 +160,7 @@ class KnowledgeGraphs():
 
 
 if __name__ == "__main__":
-    os.environ["MISTRAL_API_KEY"] = "Pcd7zIRCeLhI6JW5sZo8UMRJGCblYUIn" #key.read()
+    os.environ["MISTRAL_API_KEY"] = "" #key.read()
     llm = ChatMistralAI(model="mistral-small-latest", temperature=0)
     kg = KnowledgeGraphs(llm=llm)
     kg.create_graph(text = "TACC's ongoing collaborations across sectors already provide clear demonstrations of this promise. In construction, TACC is working with the National Council for Cement and Building Materials (NCB) and the Central Road Research Institute (CRRI) on graphene-based concrete solutions")
